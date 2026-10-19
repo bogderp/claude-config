@@ -1,0 +1,24 @@
+# Allowlist: ignore everything in ~/.claude, then opt specific paths back in.
+# Anything Claude Code writes here later (transcripts, memory, history, caches)
+# stays untracked unless it is added below on purpose.
+/*
+
+!/.gitignore
+!/.githooks/
+!/README.md
+!/bootstrap.sh
+!/CLAUDE.md
+!/RTK.md
+!/settings.json
+
+!/hooks/
+/hooks/*
+!/hooks/economy.py
+!/hooks/statusline.sh
+
+!/skills/
+/skills/*
+!/skills/delegating-economically/
+
+.DS_Store
+__pycache__/

@@ -1,0 +1,17 @@
+#!/bin/bash
+# Block commits that contain secrets or work identifiers.
+set -euo pipefail
+
+if command -v gitleaks >/dev/null; then
+    gitleaks git --staged --no-banner --redact
+else
+    echo "pre-commit: gitleaks not installed (brew install gitleaks); skipping secret scan" >&2
+fi
+
+# Work identifiers that must never land in this public repo. Extend via
+# CLAUDE_CONFIG_BLOCKLIST="word1|word2" in your shell profile.
+pattern="${CLAUDE_CONFIG_BLOCKLIST:-}"
+if [[ -n "$pattern" ]] && git diff --cached -U0 | grep -E '^\+' | grep -v '^+++' | grep -inE "$pattern"; then
+    echo "pre-commit: staged changes match CLAUDE_CONFIG_BLOCKLIST; commit blocked" >&2
+    exit 1
+fi
