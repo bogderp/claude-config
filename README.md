@@ -12,6 +12,7 @@ below; transcripts, memory, history and caches are never committed.
 | `hooks/economy.py` | Context-economy guard: subagent model rung + task contract, big-image read guard, rotation at 350K context, idle-resume warning. Thresholds via `ECON_NUDGE` / `ECON_BLOCK` |
 | `hooks/statusline.sh` | Statusline: model, current task, directory, context bar |
 | `skills/delegating-economically/` | Skill the economy hook enforces, plus the usage-audit scripts behind it |
+| `skills/orchestrating-workers/` | Running parallel subagents: when to fan out, roles, file ownership, peer messaging rules |
 
 ## Install
 

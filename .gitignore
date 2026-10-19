@@ -19,6 +19,7 @@
 !/skills/
 /skills/*
 !/skills/delegating-economically/
+!/skills/orchestrating-workers/
 
 .DS_Store
 __pycache__/
